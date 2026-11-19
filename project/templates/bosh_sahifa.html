@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bosh sahifa | Kompyuterlar do‘koni</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        nav {
+            background: #1e40af;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            flex: 1;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #172554;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+
+        .card .narx {
+            font-weight: bold;
+            color: #16a34a;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Kompyuterlar do‘koni</h1>
+    <p>Sifatli kompyuterlar va zamonaviy texnologiyalar</p>
+</header>
+
+<nav>
+    <a href="/">Bosh sahifa</a>
+    <a href="/boglanish/">Bog‘lanish</a>
+    <a href="/sotuvchilar/">Sotuvchilar</a>
+</nav>
+
+<div class="container">
+    <h2>Bizning kompyuterlarimiz</h2>
+
+    <div class="cards">
+        {% for kompyuter in kompyuterlar %}
+<div class="card">
+    {% if kompyuter.kompyuter_rasmi %}
+        <img src="{{ kompyuter.kompyuter_rasmi.url }}" alt="{{ kompyuter.kompyuter_nomi }}">
+    {% endif %}
+    <h3>{{ kompyuter.kompyuter_nomi }}</h3>
+</div>
+{% empty %}
+    <h3>Hozircha kompyuterlar mavjud emas!</h3>
+{% endfor %}
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Kompyuterlar do‘koni</p>
+</footer>
+
+</body>
+</html>

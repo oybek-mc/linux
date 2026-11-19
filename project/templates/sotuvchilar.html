@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sotuvchilar</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background: #1e40af;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 35px auto;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            width: 270px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px #0002;
+        }
+
+        .card h3 {
+            color: #1e40af;
+        }
+
+        h2 {
+            text-align: center;
+            color: #172554;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Bizning sotuvchilar</h1>
+    <p>Professional va tajribali jamoamiz</p>
+</header>
+
+<nav>
+    <a href="/">Bosh sahifa</a>
+    <a href="/boglanish/">Bog‘lanish</a>
+    <a href="/sotuvchilar/">Sotuvchilar</a>
+</nav>
+
+<div class="container">
+
+    <h2>Sotuvchilar ro‘yxati</h2>
+
+    <div class="cards">
+
+        {% for sotuvchi in sotuvchilar %}
+
+        <div class="card">
+
+            <h3>{{ sotuvchi.ism }}</h3>
+
+            <p>Telefon: {{ sotuvchi.telefon }}</p>
+
+            <p>Manzil: {{ sotuvchi.manzil }}</p>
+
+            <p>{{ sotuvchi.malumot }}</p>
+
+        </div>
+
+        {% empty %}
+
+        <h3>Hozircha sotuvchilar mavjud emas!</h3>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Kompyuterlar do‘koni</p>
+</footer>
+
+</body>
+</html>
